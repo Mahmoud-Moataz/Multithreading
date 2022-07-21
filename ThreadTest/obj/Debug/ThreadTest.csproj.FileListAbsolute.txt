@@ -1,0 +1,7 @@
+C:\Users\mahmo\RiderProjects\ThreadTest\ThreadTest\bin\Debug\ThreadTest.exe
+C:\Users\mahmo\RiderProjects\ThreadTest\ThreadTest\bin\Debug\ThreadTest.pdb
+C:\Users\mahmo\RiderProjects\ThreadTest\ThreadTest\obj\Debug\ThreadTest.csproj.AssemblyReference.cache
+C:\Users\mahmo\RiderProjects\ThreadTest\ThreadTest\obj\Debug\ThreadTest.csproj.SuggestedBindingRedirects.cache
+C:\Users\mahmo\RiderProjects\ThreadTest\ThreadTest\obj\Debug\ThreadTest.csproj.CoreCompileInputs.cache
+C:\Users\mahmo\RiderProjects\ThreadTest\ThreadTest\obj\Debug\ThreadTest.exe
+C:\Users\mahmo\RiderProjects\ThreadTest\ThreadTest\obj\Debug\ThreadTest.pdb
