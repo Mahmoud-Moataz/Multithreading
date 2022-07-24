@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -9,19 +10,60 @@ namespace ThreadTest
     {
         public static void Main(string[] args)
         {
-            var threads = new Thread[20];
+            var threads = new List<Thread>();
 
             for (var i = 0; i < 20; i++)
             {
                 var t = new Thread(Test.FileWrite) {Name = $"t{i + 1}"};
-                threads[i] = t;
                 t.Start();
+                threads.Add(t);
             }
-            
-            var input = Console.ReadLine();
 
-            var myThread = threads.First(t => t.Name == input);
-            myThread.Abort();
+            do
+            {
+                Console.WriteLine("Enter thread name \n");
+                var input = Console.ReadLine();
+
+                Console.WriteLine("Enter 's' to start a thread or 'p' to stop the thread \n");
+                var letter = Console.ReadLine();
+                Console.WriteLine("\n");
+
+
+                try
+                {
+                    var myThread = threads.First(t => t.Name == input);
+                    if (letter == "p")
+                    {
+                        myThread.Abort();
+                        threads.Remove(myThread);
+                    }
+                    else if (letter == "s")
+                    {
+                        Console.WriteLine("Thread has already started");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wrong Input");
+                    }
+                }
+                catch (Exception e)
+                {
+                    if (letter == "s")
+                    {
+                        var t = new Thread(Test.FileWrite) {Name = input};
+                        t.Start();
+                        threads.Add(t);
+                    }
+                    else if (letter == "p")
+                    {
+                        Console.WriteLine("Thread has already terminated or aborted");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wrong Input");
+                    }
+                }
+            } while (true);
 
             foreach (var thread in threads) thread.Join();
         }
